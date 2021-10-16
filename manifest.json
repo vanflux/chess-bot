@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Chess Bot",
+  "version": "1.0",
+  "description": "Bot for chess.com",
+  "icons": {
+    "48": "icons/icon-48.png"
+  },
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "*://www.chess.com/*",
+    "*://betacssjs.chesscomfiles.com/*"
+  ],
+  "content_scripts": [
+    {
+      "run_at": "document_start",
+      "matches": ["*://www.chess.com/*"],
+      "js": [
+        "src/app.js"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "src/injector.js"
+    ]
+  }
+}
