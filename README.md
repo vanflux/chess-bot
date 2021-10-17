@@ -1,23 +1,28 @@
 # Chess Bot
 
-A bot for chess.com.
+A bot (more like a hack) for chess.com.<br>
+Highlight best move squares using stockfish engine.
 
 Only works in online matches.<br>
-Dont play "serious" games with bot, its pathetic.
+Dont play "serious" games with bot, its _**pathetic**_.
 
-**WARN** I have NO plans to make this bot 100% undetectable!
+`If you use this bot, you will still be terrible at chess...`
 
-**WARN** Dont use on your real account! Use at your risk!
+I have **NO** plans to make this bot 100% undetectable!
+
+Use at **your own** risk!
 
 <img height=250 src="images/banner.png">
 
-## Firefox
+## **Install**
 
+### Firefox
+
+- [Download](https://github.com/vanflux/chess-bot/releases/download/chess-bot-pre/chess-bot.zip) the bot (.zip file).
 - Go to [about:debugging](about:debugging)
 - Click on 'load temporary extension'
-- Go to the project directory and double-click some file.
-- Go to [chess.com](chess.com) and play an online match.
+- Load the chess-bot.zip file
 
-## Chrome, Opera, IE...
+### Chrome, Opera, IE...
 
 - No, use firefox.
