@@ -1,0 +1,30 @@
+{
+  "name": "chess-bot",
+  "version": "1.0.0",
+  "description": "A bot for chess.com.",
+  "scripts": {
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanflux/chess-bot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanflux/chess-bot/issues"
+  },
+  "homepage": "https://github.com/vanflux/chess-bot#readme",
+  "devDependencies": {
+    "@types/firefox-webext-browser": "^94.0.0",
+    "@types/node": "^16.11.0",
+    "@types/web": "0.0.42",
+    "copy-webpack-plugin": "^9.0.1",
+    "ts-loader": "^9.2.6",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.4.4",
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0",
+    "write-file-webpack-plugin": "^4.5.1"
+  }
+}

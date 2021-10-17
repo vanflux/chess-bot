@@ -17,13 +17,13 @@
       "run_at": "document_start",
       "matches": ["*://www.chess.com/*"],
       "js": [
-        "src/app.js"
+        "content.js"
       ]
     }
   ],
   "background": {
     "scripts": [
-      "src/injector.js"
+      "background.js"
     ]
   }
 }
