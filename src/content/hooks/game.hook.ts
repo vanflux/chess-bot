@@ -41,6 +41,10 @@ class Game {
     Game.onAllHandlers.push(handler);
   }
   
+  static offAll(handler) {
+    Game.onAllHandlers = Game.onAllHandlers.filter(x => x != handler);
+  }
+  
 }
 
 export default Game;

@@ -11,5 +11,9 @@ export function cheatDetectionPluginHook(str: string) {
       })).toString().replace(/[\n\r]/g, ''),
     );
   }
+
+  // Miserably try to hook move function...
+  //str = str.replaceAll('makeMove=(e,t,s=!1)=>{', 'makeMove=(e,t,s=!1)=>{console.log("makeMove(",e,",",t,",",s,")");');
+  
   return str;
 }

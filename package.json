@@ -18,13 +18,23 @@
   "devDependencies": {
     "@types/firefox-webext-browser": "^94.0.0",
     "@types/node": "^16.11.0",
+    "@types/react": "^17.0.30",
+    "@types/react-dom": "^17.0.9",
     "@types/web": "0.0.42",
+    "@types/webpack": "^5.28.0",
     "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.4.0",
+    "style-loader": "^3.3.0",
     "ts-loader": "^9.2.6",
     "ts-node-dev": "^1.1.8",
     "typescript": "^4.4.4",
     "webpack": "^5.58.2",
     "webpack-cli": "^4.9.0",
     "write-file-webpack-plugin": "^4.5.1"
+  },
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-draggable": "^4.4.4"
   }
 }

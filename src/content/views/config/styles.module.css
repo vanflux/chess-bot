@@ -1,0 +1,28 @@
+.container {
+  background-color: #312e2b;
+  color: #eeeeee;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+}
+
+.container > h3 {
+  color: #eeeeee;
+}
+
+.spacing {
+  margin: 2px 0px;
+}
+
+.button {
+  border: none;
+  background-color: #5e5a57;
+  color: #eeeeee;
+}
+
+.button:hover {
+  background-color: #eeeeee;
+  color: #5e5a57;
+}

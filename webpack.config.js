@@ -6,13 +6,33 @@ module.exports = {
   watch: true,
   devtool: 'inline-source-map',
   entry: {
-    content: './src/content/app.ts',
+    content: './src/content/index.tsx',
     background: './src/background/index.ts',
   },
   module: {
     rules: [
       {
-        test: /\.ts?$/,
+        test: /\.css$/i,
+        use: [
+          {
+            loader: 'style-loader',
+            options: {
+              insert: (styleTag) => {
+                wrappedJSObject.document.onreadystatechange = exportFunction((readyState) => {
+                  if (wrappedJSObject.document.readyState === 'complete') {
+                    wrappedJSObject.document.head.appendChild(styleTag);
+                  }
+                }, wrappedJSObject);
+              },
+            },
+          },
+          {
+            loader: 'css-loader',
+          },
+        ]
+      },
+      {
+        test: /\.ts|tsx$/,
         use: 'ts-loader',
         exclude: /node_modules/,
       },
@@ -24,7 +44,7 @@ module.exports = {
   },
   resolve: {
     modules: [path.resolve(__dirname, 'node_modules'), 'node_modules'],
-    extensions: ['.ts'],
+    extensions: [".ts", ".tsx", ".js", ".jsx"]
   },
   plugins: [
     new CopyPlugin({

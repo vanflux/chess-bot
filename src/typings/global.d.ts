@@ -1,6 +1,8 @@
 export {}
 
 declare global {
+  module "*.module.css";
+
   var wrappedJSObject: Window & {
     Config: any,
   };

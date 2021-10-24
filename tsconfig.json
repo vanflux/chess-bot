@@ -11,6 +11,7 @@
     "lib": [
       "ES2021.String"
     ],
+    "jsx": "react",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true
