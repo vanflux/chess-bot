@@ -64,7 +64,27 @@ class Game {
   }
 
   static clearMarkings() {
-    return Game.instance.clearMarkings()
+    return Game.instance.clearMarkings();
+  }
+  
+  static getMove(move) {
+    return Game.instance.getMove(cloneInto(move, wrappedJSObject));
+  }
+  
+  static getLegalMovesForSquare(square) {
+    return Game.instance.getLegalMovesForSquare(square);
+  }
+  
+  static getOptions() {
+    return Game.instance.getOptions();
+  }
+  
+  static move(move) {
+    return Game.instance.move(cloneInto(move, wrappedJSObject));
+  }
+
+  static getTurn() {
+    return Game.instance.getTurn();
   }
 
   static onAll(handler) {

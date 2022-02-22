@@ -21,15 +21,22 @@ class BestMoveHack {
   public async recalculate() {
     let fen = Game.getFEN();
     let {from, to} = await this.bestMove(fen);
-    //console.log('bestmove', from, to);
     Game.clearMarkings();
     Game.toggleMarking(Config.highlightColor, from);
     Game.toggleMarking(Config.highlightColor, to);
+
+    if (Config.autoMove) {
+      let options = Game.getOptions();
+      const isMyTurn = options.flipped ? (Game.getTurn() == 2) : (Game.getTurn() == 1);
+      if (isMyTurn) {
+        this.doMove({from, to});
+      }
+    }
   }
 
   private async onAllHandler({data, type}) {
     if (type === 'Move') {
-      console.log(Game.instance);
+      console.log('Move...');
     }
     if (type === 'UpdateECO') {
       this.recalculate();
@@ -51,6 +58,22 @@ class BestMoveHack {
       }
       Stockfish.addEventListener('message', handler);
     });
+  }
+
+  private async doMove({from, to}) {
+    const legalMoves = Game.getLegalMovesForSquare(from);
+    if (legalMoves.includes(to)) {
+      console.log('Auto-moving...');
+      let move = Game.getMove({ from, to });
+      Game.move({
+        ...move,
+        animate: false,
+        userGenerated: true,
+        userGeneratedDrop: true,
+      });
+    } else {
+      console.log('Illegal move calculated', from, to);
+    }
   }
 }
 

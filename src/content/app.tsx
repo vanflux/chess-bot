@@ -31,6 +31,10 @@ class App extends React.Component<AppProps, AppState> {
   private onThinkingTime(value: number) {
     Config.thinkingTime = value;
   }
+  
+  private onAutoMove(value: boolean) {
+    Config.autoMove = value;
+  }
 
   private onRecalculate() {
     this.bestMoveHack.recalculate();
@@ -44,7 +48,8 @@ class App extends React.Component<AppProps, AppState> {
             <ConfigView 
               onHighlightColor={this.onHighlightColor.bind(this)}
               onThinkingTime={this.onThinkingTime.bind(this)}
-              onRecalculate={this.onRecalculate.bind(this)}>
+              onRecalculate={this.onRecalculate.bind(this)}
+              onAutoMove={this.onAutoMove.bind(this)}>
             </ConfigView>
           </div>
         </Draggable>

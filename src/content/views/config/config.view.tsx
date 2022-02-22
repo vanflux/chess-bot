@@ -6,11 +6,13 @@ interface ConfigViewProps {
   onRecalculate: ()=>void;
   onThinkingTime: (value: number)=>void;
   onHighlightColor: (value: string)=>void;
+  onAutoMove: (value: boolean)=>void;
 }
  
 interface ConfigViewState {
   thinkingTime: number,
   highlightColor: string,
+  autoMove: boolean,
 }
  
 class ConfigView extends React.Component<ConfigViewProps, ConfigViewState> {
@@ -19,6 +21,7 @@ class ConfigView extends React.Component<ConfigViewProps, ConfigViewState> {
     this.state = {
       thinkingTime: 1000,
       highlightColor: 'a',
+      autoMove: false,
     };
   }
 
@@ -32,6 +35,12 @@ class ConfigView extends React.Component<ConfigViewProps, ConfigViewState> {
     let highlightColor = e.target.value
     this.setState({highlightColor});
     this.props.onHighlightColor(highlightColor);
+  }
+  
+  onAutoMoveChanged(e: ChangeEvent<HTMLInputElement>) {
+    let autoMove = e.target.checked
+    this.setState({autoMove});
+    this.props.onAutoMove(autoMove);
   }
   
   onRecalculateRequest() {
@@ -51,6 +60,12 @@ class ConfigView extends React.Component<ConfigViewProps, ConfigViewState> {
           <option value="b">Yellow</option>
           <option value="d">Red</option>
         </select>
+
+        <div>
+          <input name="auto-move" onChange={this.onAutoMoveChanged.bind(this)} type="checkbox" checked={this.state.autoMove}></input>
+          <label htmlFor="auto-move">Auto Move:</label>
+        </div>
+        
         <button className={styles.button} onClick={this.onRecalculateRequest.bind(this)}>Re-Calculate</button>
       </div>
     );
