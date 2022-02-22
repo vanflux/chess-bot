@@ -24,7 +24,7 @@ Menu of the bot:
 
 ### Firefox
 
-- [Download](https://github.com/vanflux/chess-bot/releases/download/chess-bot/chess-bot.zip) the bot (.zip file).
+- [Download](https://github.com/vanflux/chess-bot/releases/download/v0.0.2/chess-bot.zip) the bot (.zip file).
 - Go to [about:debugging](about:debugging)
 - Click on 'load temporary extension'
 - Load the chess-bot.zip file
