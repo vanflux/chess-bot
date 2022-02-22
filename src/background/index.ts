@@ -1,5 +1,4 @@
 import { cheatDetectionPluginHook } from "./hooks/cheatDetectionPluginHook";
-import { gameHook } from "./hooks/gameHook";
 
 browser.webRequest.onBeforeRequest.addListener(
   (details) => {
@@ -33,11 +32,7 @@ const injections = [
   // Game injection
   ({url}, str) => {
     if (!url.includes('play__beta')) return str;
-
-    // Game instance hook
-    console.log('Hooking GameInstance...');
-    str = gameHook(str);
-
+    
     // Bypass cheat detection plugin
     console.log('Hooking CheatDetectionPlugin...');
     str = cheatDetectionPluginHook(str);

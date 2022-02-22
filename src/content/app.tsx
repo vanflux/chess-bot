@@ -38,12 +38,9 @@ class App extends React.Component<AppProps, AppState> {
 
   render() { 
     return (
-      <div style={{
-        position: 'fixed',
-        pointerEvents: 'all'
-      }}>
+      <div>
         <Draggable>
-          <div>
+          <div style={{position: 'fixed', pointerEvents: 'all'}}>
             <ConfigView 
               onHighlightColor={this.onHighlightColor.bind(this)}
               onThinkingTime={this.onThinkingTime.bind(this)}
@@ -51,7 +48,6 @@ class App extends React.Component<AppProps, AppState> {
             </ConfigView>
           </div>
         </Draggable>
-        456
       </div>
     );
   }

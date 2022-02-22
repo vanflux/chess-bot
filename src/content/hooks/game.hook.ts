@@ -10,6 +10,36 @@ class Game {
         Game.setInstance(instance);
       }, wrappedJSObject),
     });
+
+    // This is more chrome manifest v3 compatible... (its large... but is how chrome like...)
+
+    function execOnPage(code) {
+      document.addEventListener('readystatechange', () => {
+        if (document.readyState !== 'complete') return;
+        const script = document.createElement('script');
+        script.textContent = code;
+        const head = document.getElementsByTagName("head")[0];
+        head.insertBefore(script, head.firstChild);
+      });
+    }
+    
+    function main() {
+      const originalAssign = Object.assign;
+      const newAssign = function(...args: Parameters<typeof Object.assign>) {
+        for (let arg of args) {
+          if (typeof arg === 'object' && arg.getCurrentFullLine !== undefined && arg.getContext !== undefined) {
+            const name = '_' + Math.floor(Math.random() * 1000000000);
+            window.confirm[name] = arg;
+            window['newGameInstance'] = name;
+          }
+        }
+        return originalAssign(...args);
+      }
+      newAssign.toString = () => 'function assign() {\n    [native code]\n}';
+      Object.assign = newAssign;
+    }
+    
+    execOnPage('(' + main.toString() + ')()');
   })();
 
   static setInstance(instance) {
