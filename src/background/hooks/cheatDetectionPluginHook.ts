@@ -5,7 +5,7 @@ export function cheatDetectionPluginHook(str: string) {
     str = str.replaceAll(
       toReplace,
       (()=>({
-        api: () => ({didChangePieces: false, didUseCheatMouse: false, moveHoldTimes: []}),
+        api: () => ({get: () => ({didChangePieces: false, didUseCheatMouse: false, moveHoldTimes: []}) }),
         match: new Array(3).fill(null).map(x => ({ condition: ()=>false, handler: ()=>{} }) ),
         name: "cheatDetection",
       })).toString().replace(/[\n\r]/g, ''),
